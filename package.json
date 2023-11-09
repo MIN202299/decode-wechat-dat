@@ -1,0 +1,74 @@
+{
+  "name": "starter-ts",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.6.12",
+  "description": "",
+  "author": "dcwjoy <min202299@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/MIN202299",
+  "homepage": "https://github.com/MIN202299/starter-ts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MIN202299/starter-ts.git"
+  },
+  "bugs": "https://github.com/MIN202299/starter-ts/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "devDependencies": {
+    "@dcwjoy/eslint-config": "^0.39.28",
+    "@types/node": "^20.4.5",
+    "bumpp": "^9.1.1",
+    "eslint": "^8.45.0",
+    "esno": "^0.17.0",
+    "lint-staged": "^13.2.3",
+    "pnpm": "^8.6.10",
+    "rimraf": "^5.0.1",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.1.6",
+    "unbuild": "^1.2.1",
+    "vite": "^4.4.7",
+    "vitest": "^0.33.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "dependencies": {
+    "async": "^3.2.5"
+  }
+}
